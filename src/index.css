@@ -1,0 +1,338 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    min-width: 320px;
+    min-height: 100vh;
+    background: #f6f8f7;
+    color: #0f172a;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button,
+  a,
+  input,
+  textarea {
+    outline-color: #0f766e;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: default;
+  }
+}
+
+@layer components {
+  .page-wrap {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding: 2.25rem 1.25rem 7rem;
+  }
+
+  .card {
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    background: #fff;
+    padding: 1.25rem;
+    box-shadow: 0 1px 2px rgb(15 23 42 / 0.025);
+  }
+
+  .card-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .card-heading h2 {
+    margin-top: 0.15rem;
+    color: #0f172a;
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .section-kicker {
+    color: #0f766e;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+  }
+
+  .primary-button {
+    display: inline-flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+    background: #0f766e;
+    padding: 0.7rem 1.15rem;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition:
+      background 0.2s,
+      transform 0.2s,
+      box-shadow 0.2s;
+    box-shadow: 0 1px 2px rgb(15 23 42 / 0.1);
+  }
+
+  .primary-button:hover {
+    background: #115e59;
+    box-shadow: 0 5px 12px rgb(15 118 110 / 0.18);
+  }
+
+  .primary-button:active {
+    transform: translateY(1px);
+  }
+
+  .secondary-button,
+  .completed-button,
+  .ghost-button {
+    display: inline-flex;
+    min-height: 42px;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    border-radius: 0.7rem;
+    padding: 0.6rem 0.95rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .secondary-button {
+    border: 1px solid #99f6e4;
+    background: #f0fdfa;
+    color: #0f766e;
+  }
+
+  .secondary-button:hover {
+    border-color: #5eead4;
+    background: #ccfbf1;
+  }
+
+  .completed-button {
+    background: #ecfdf5;
+    color: #047857;
+  }
+
+  .ghost-button {
+    border: 1px solid #e2e8f0;
+    background: white;
+    color: #475569;
+  }
+
+  .ghost-button:hover {
+    background: #f8fafc;
+  }
+
+  .field {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.75rem;
+    background: white;
+    padding: 0.75rem 0.9rem;
+    color: #0f172a;
+    font-size: 0.9rem;
+    transition:
+      border-color 0.2s,
+      box-shadow 0.2s;
+  }
+
+  .field::placeholder {
+    color: #94a3b8;
+  }
+
+  .field:focus {
+    border-color: #0d9488;
+    box-shadow: 0 0 0 3px rgb(20 184 166 / 0.12);
+    outline: none;
+  }
+
+  .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #334155;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .demo-button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.85rem;
+    background: white;
+    padding: 0.75rem;
+    transition:
+      border-color 0.2s,
+      box-shadow 0.2s,
+      transform 0.2s;
+  }
+
+  .demo-button:hover {
+    border-color: #94a3b8;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 14px rgb(15 23 42 / 0.06);
+  }
+
+  .demo-button strong,
+  .demo-button small {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .demo-button strong {
+    color: #1e293b;
+    font-size: 0.82rem;
+  }
+
+  .demo-button small {
+    margin-top: 0.1rem;
+    color: #94a3b8;
+    font-size: 0.68rem;
+  }
+
+  .demo-icon {
+    display: grid;
+    width: 2.25rem;
+    height: 2.25rem;
+    flex-shrink: 0;
+    place-items: center;
+    border-radius: 0.65rem;
+  }
+
+  .nav-item {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 0.75rem;
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition:
+      background 0.2s,
+      color 0.2s;
+  }
+
+  .nav-item:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+  }
+
+  .nav-item-active {
+    background: #ecfdf5;
+    color: #0f766e;
+    font-weight: 600;
+  }
+
+  .mobile-nav {
+    display: flex;
+    min-height: 52px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+  }
+
+  .text-link {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 0.25rem;
+    color: #0f766e;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .text-link:hover {
+    color: #115e59;
+  }
+
+  .filter-button {
+    border-radius: 0.55rem;
+    padding: 0.45rem 0.7rem;
+    color: #64748b;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition:
+      background 0.2s,
+      color 0.2s;
+  }
+
+  .filter-button:hover {
+    background: #f1f5f9;
+  }
+
+  .filter-active {
+    background: #0f766e;
+    color: white;
+  }
+
+  .filter-active:hover {
+    background: #115e59;
+  }
+
+  .detail-box {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-radius: 0.8rem;
+    background: #f8fafc;
+    padding: 1rem;
+    color: #64748b;
+  }
+
+  .detail-box small,
+  .detail-box strong {
+    display: block;
+  }
+
+  .detail-box small {
+    color: #94a3b8;
+    font-size: 0.68rem;
+  }
+
+  .detail-box strong {
+    margin-top: 0.1rem;
+    color: #334155;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+}
+
+.login-pattern {
+  background-image:
+    radial-gradient(circle at 20% 25%, #5eead4 0, transparent 26%),
+    radial-gradient(circle at 85% 75%, #2dd4bf 0, transparent 25%);
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 1.5rem;
+  }
+
+  .page-wrap {
+    padding: 2.75rem 2rem 5rem;
+  }
+}

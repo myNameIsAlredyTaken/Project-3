@@ -1,0 +1,10 @@
+{
+  "description": "Helps students manage shared cleaning and garbage tasks and report maintenance issues, while housing staff track reports and update their status.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
